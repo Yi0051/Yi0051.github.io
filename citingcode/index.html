@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    /* Reference: https://www.w3schools.com/howto/howto_css_image_overlay.asp */
+.container {
+  position: relative;
+  width: 50%;
+}
+
+.image {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: 1s ease;/*Change the time when the picture becomes blurry*/
+  backface-visibility: hidden;
+}
+
+.middle {
+  transition: 2s ease; /*Time when the middle button appears*/
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.container:hover .image {
+  opacity: 0.3;
+}
+
+.container:hover .middle {
+  opacity: 1;
+}
+
+.Button {
+  background-color: #317cc2; /* change the button's color*/
+  color: white;
+  font-size: 16px;
+  padding: 16px 32px;
+}
+</style>
+</head>
+<body>
+
+<h2>My cat will show you the time</h2>
+<p>Click the button in the center of the image.</p>
+
+
+<div class="container">
+  <img src="cat.jpg" alt="cat" class="image" style="width:100%"> 
+  <!--Replacement picture-->
+  <div class="middle">
+    <!--Reference: https://www.w3schools.com/js/default.asp-->  
+    <div class="Button"><button type="button"
+onclick="document.getElementById('demo').innerHTML = Date()">
+Click to display the Time.</button>
+
+<p id="demo"></p></div>
+  </div>
+</div>
+  
+</body>
+</html>
